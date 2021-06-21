@@ -2,4 +2,6 @@
 <resources>
     <dimen name="textSize">18sp</dimen>
     <dimen name="buttonCornerRadius">0dp</dimen>
+    <dimen name="sizeButton">64dp</dimen>
+    <dimen name="marginButton">8dp</dimen>
 </resources>

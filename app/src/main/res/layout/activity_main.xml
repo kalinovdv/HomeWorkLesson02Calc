@@ -7,12 +7,35 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/button7"
+        android:layout_width="@dimen/sizeButton"
+        android:layout_height="@dimen/sizeButton"
+        android:layout_marginEnd="@dimen/marginButton"
+        android:layout_marginRight="@dimen/marginButton"
         android:text="@string/button7"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
-        app:cornerRadius="@dimen/buttonCornerRadius" />
+        app:cornerRadius="@dimen/buttonCornerRadius"
+        app:layout_constraintEnd_toStartOf="@id/button8"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/button8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintVertical_chainStyle="packed"/>
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="@dimen/sizeButton"
+        android:layout_height="@dimen/sizeButton"
+        android:layout_marginEnd="@dimen/marginButton"
+        android:layout_marginLeft="@dimen/marginButton"
+        android:text="@string/button8"
+        android:textSize="@dimen/textSize"
+        app:backgroundTint="@color/buttonColor"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+        app:layout_constraintLeft_toRightOf="@id/button7"
+        app:layout_constraintTop_toTopOf="@id/button7"
+        android:layout_marginStart="@dimen/marginButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
