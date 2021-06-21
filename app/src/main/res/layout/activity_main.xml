@@ -57,5 +57,54 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="@dimen/sizeButton"
+        android:layout_height="@dimen/sizeButton"
+        android:layout_marginTop="@dimen/marginButton"
+        android:layout_marginEnd="@dimen/marginButton"
+        android:layout_marginRight="@dimen/marginButton"
+        android:text="@string/button4"
+        android:textSize="@dimen/textSize"
+        app:backgroundTint="@color/buttonColor"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+        app:layout_constraintEnd_toStartOf="@id/button5"
+
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button7" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="@dimen/sizeButton"
+        android:layout_height="@dimen/sizeButton"
+        android:layout_marginStart="@dimen/marginButton"
+        android:layout_marginLeft="@dimen/marginButton"
+        android:layout_marginTop="@dimen/marginButton"
+        android:layout_marginEnd="@dimen/marginButton"
+        android:layout_marginRight="@dimen/marginButton"
+        android:text="@string/button5"
+        android:textSize="@dimen/textSize"
+        app:backgroundTint="@color/buttonColor"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+        app:layout_constraintEnd_toStartOf="@id/button6"
+        app:layout_constraintStart_toEndOf="@id/button4"
+        app:layout_constraintTop_toBottomOf="@id/button8" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="@dimen/sizeButton"
+        android:layout_height="@dimen/sizeButton"
+        android:layout_marginStart="@dimen/marginButton"
+        android:layout_marginLeft="@dimen/marginButton"
+        android:layout_marginTop="@dimen/marginButton"
+        android:text="@string/button6"
+        android:textSize="@dimen/textSize"
+        app:backgroundTint="@color/buttonColor"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/button5"
+        app:layout_constraintTop_toBottomOf="@id/button9" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
