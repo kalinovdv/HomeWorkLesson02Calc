@@ -5,4 +5,5 @@
     <dimen name="sizeButton">64dp</dimen>
     <dimen name="marginButton">8dp</dimen>
     <dimen name="marginTop">192dp</dimen>
+    <dimen name="layoutWidthHeightZeroDP">0dp</dimen>
 </resources>

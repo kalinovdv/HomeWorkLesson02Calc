@@ -14,4 +14,7 @@
     <string name="buttonClear">C</string>
     <string name="buttonDivision">/</string>
     <string name="buttonMultiplication">*</string>
+    <string name="buttonSubtraction">-</string>
+    <string name="buttonAddition">+</string>
+    <string name="buttonEqually">=</string>
 </resources>
