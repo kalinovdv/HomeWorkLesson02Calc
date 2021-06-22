@@ -7,305 +7,282 @@
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        android:insetLeft="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
         android:id="@+id/buttonClear"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
-        android:layout_marginTop="@dimen/marginTop"
-        android:layout_marginEnd="@dimen/marginButton"
-        android:layout_marginRight="@dimen/marginButton"
-        android:layout_marginBottom="@dimen/marginButton"
         android:text="@string/buttonClear"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
         app:cornerRadius="@dimen/buttonCornerRadius"
-        app:layout_constraintBottom_toTopOf="@id/button7"
-        app:layout_constraintEnd_toStartOf="@id/buttonDivision"
-        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_bias="0.2" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        android:insetLeft="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
         android:id="@+id/buttonDivision"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
-        android:layout_marginStart="@dimen/marginButton"
-        android:layout_marginLeft="@dimen/marginButton"
-        android:layout_marginTop="@dimen/marginTop"
-        android:layout_marginEnd="@dimen/marginButton"
-        android:layout_marginRight="@dimen/marginButton"
-        android:layout_marginBottom="@dimen/marginButton"
         android:text="@string/buttonDivision"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
         app:cornerRadius="@dimen/buttonCornerRadius"
-        app:layout_constraintBottom_toTopOf="@id/button8"
-        app:layout_constraintEnd_toStartOf="@id/buttonМultiplication"
-        app:layout_constraintStart_toEndOf="@id/buttonClear"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintBottom_toBottomOf="@+id/buttonClear"
+        app:layout_constraintStart_toEndOf="@+id/buttonClear"
+        app:layout_constraintTop_toTopOf="@+id/buttonClear" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        android:insetLeft="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
         android:id="@+id/buttonМultiplication"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
-        android:layout_marginStart="@dimen/marginButton"
-        android:layout_marginLeft="@dimen/marginButton"
-        android:layout_marginTop="@dimen/marginTop"
-        android:layout_marginEnd="@dimen/marginButton"
-        android:layout_marginRight="@dimen/marginButton"
-        android:layout_marginBottom="@dimen/marginButton"
         android:text="@string/buttonMultiplication"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
         app:cornerRadius="@dimen/buttonCornerRadius"
-        app:layout_constraintBottom_toTopOf="@id/button9"
-        app:layout_constraintEnd_toStartOf="@id/buttonSubtraction"
-        app:layout_constraintStart_toEndOf="@id/buttonDivision"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintBottom_toBottomOf="@+id/buttonDivision"
+        app:layout_constraintStart_toEndOf="@+id/buttonDivision"
+        app:layout_constraintTop_toTopOf="@+id/buttonDivision" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        android:insetLeft="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
         android:id="@+id/buttonSubtraction"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
-        android:layout_marginStart="@dimen/marginButton"
-        android:layout_marginLeft="@dimen/marginButton"
-        android:layout_marginTop="@dimen/marginTop"
-        android:layout_marginBottom="@dimen/marginButton"
         android:text="@string/buttonSubtraction"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
         app:cornerRadius="@dimen/buttonCornerRadius"
-        app:layout_constraintBottom_toTopOf="@id/buttonAddition"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/buttonМultiplication"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintBottom_toBottomOf="@+id/buttonМultiplication"
+        app:layout_constraintStart_toEndOf="@+id/buttonМultiplication"
+        app:layout_constraintTop_toTopOf="@+id/buttonМultiplication" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        android:insetLeft="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
         android:id="@+id/button7"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
-        android:layout_marginEnd="@dimen/marginButton"
-        android:layout_marginRight="@dimen/marginButton"
         android:text="@string/button7"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
         app:cornerRadius="@dimen/buttonCornerRadius"
-        app:layout_constraintBottom_toTopOf="@id/button4"
-        app:layout_constraintEnd_toStartOf="@id/button8"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonClear" />
+        app:layout_constraintEnd_toEndOf="@+id/buttonClear"
+        app:layout_constraintStart_toStartOf="@+id/buttonClear"
+        app:layout_constraintTop_toBottomOf="@+id/buttonClear" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        android:insetLeft="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
         android:id="@+id/button8"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
-        android:layout_marginStart="@dimen/marginButton"
-        android:layout_marginLeft="@dimen/marginButton"
-        android:layout_marginEnd="@dimen/marginButton"
-        android:layout_marginRight="@dimen/marginButton"
         android:text="@string/button8"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
         app:cornerRadius="@dimen/buttonCornerRadius"
-        app:layout_constraintBottom_toTopOf="@id/button5"
-        app:layout_constraintEnd_toStartOf="@id/button9"
-        app:layout_constraintStart_toEndOf="@id/button7"
-        app:layout_constraintTop_toBottomOf="@id/buttonDivision"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintBottom_toBottomOf="@+id/button7"
+        app:layout_constraintStart_toEndOf="@+id/button7"
+        app:layout_constraintTop_toBottomOf="@+id/buttonClear" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        android:insetLeft="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
         android:id="@+id/button9"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
-        android:layout_marginStart="@dimen/marginButton"
-        android:layout_marginLeft="@dimen/marginButton"
-        android:layout_marginEnd="@dimen/marginButton"
-        android:layout_marginRight="@dimen/marginButton"
         android:text="@string/button9"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
         app:cornerRadius="@dimen/buttonCornerRadius"
-        app:layout_constraintBottom_toTopOf="@id/button6"
-        app:layout_constraintEnd_toStartOf="@id/buttonAddition"
-        app:layout_constraintStart_toEndOf="@id/button8"
-        app:layout_constraintTop_toBottomOf="@id/buttonМultiplication"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintBottom_toBottomOf="@+id/button8"
+        app:layout_constraintStart_toEndOf="@+id/button8"
+        app:layout_constraintTop_toTopOf="@+id/button8" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        android:insetLeft="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
         android:id="@+id/buttonAddition"
         android:layout_width="@dimen/sizeButton"
-        android:layout_height="@dimen/layoutWidthHeightZeroDP"
-        android:layout_marginStart="@dimen/marginButton"
-        android:layout_marginLeft="@dimen/marginButton"
-        android:layout_marginBottom="@dimen/marginButton"
+        android:layout_height="0dp"
+
         android:text="@string/buttonAddition"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
         app:cornerRadius="@dimen/buttonCornerRadius"
-        app:layout_constraintBottom_toTopOf="@id/buttonEqually"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/button9"
-        app:layout_constraintTop_toTopOf="@id/button9" />
+        app:layout_constraintBottom_toBottomOf="@+id/button6"
+        app:layout_constraintStart_toEndOf="@+id/button9"
+        app:layout_constraintTop_toBottomOf="@+id/buttonМultiplication" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        android:insetLeft="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
         android:id="@+id/buttonEqually"
         android:layout_width="@dimen/sizeButton"
-        android:layout_height="@dimen/layoutWidthHeightZeroDP"
-        android:layout_marginStart="@dimen/marginButton"
-        android:layout_marginLeft="@dimen/marginButton"
+        android:layout_height="0dp"
         android:text="@string/buttonEqually"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
         app:cornerRadius="@dimen/buttonCornerRadius"
-        app:layout_constraintBottom_toBottomOf="@id/buttonDot"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/button3"
-        app:layout_constraintTop_toBottomOf="@id/buttonAddition" />
+        app:layout_constraintBottom_toBottomOf="@+id/buttonDot"
+        app:layout_constraintStart_toEndOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/button6" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        android:insetLeft="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
         android:id="@+id/button4"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
-        android:layout_marginTop="@dimen/marginButton"
-        android:layout_marginEnd="@dimen/marginButton"
-        android:layout_marginRight="@dimen/marginButton"
         android:text="@string/button4"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
         app:cornerRadius="@dimen/buttonCornerRadius"
-        app:layout_constraintBottom_toTopOf="@id/button1"
-        app:layout_constraintEnd_toStartOf="@id/button5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button7" />
+        app:layout_constraintEnd_toEndOf="@+id/button7"
+        app:layout_constraintStart_toStartOf="@+id/button7"
+        app:layout_constraintTop_toBottomOf="@+id/button7" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        android:insetLeft="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
         android:id="@+id/button5"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
-        android:layout_marginStart="@dimen/marginButton"
-        android:layout_marginLeft="@dimen/marginButton"
-        android:layout_marginTop="@dimen/marginButton"
-        android:layout_marginEnd="@dimen/marginButton"
-        android:layout_marginRight="@dimen/marginButton"
         android:text="@string/button5"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
         app:cornerRadius="@dimen/buttonCornerRadius"
-        app:layout_constraintBottom_toTopOf="@id/button2"
-        app:layout_constraintEnd_toStartOf="@id/button6"
-        app:layout_constraintStart_toEndOf="@id/button4"
-        app:layout_constraintTop_toBottomOf="@id/button8" />
+        app:layout_constraintBottom_toBottomOf="@+id/button4"
+        app:layout_constraintStart_toEndOf="@+id/button4"
+        app:layout_constraintTop_toTopOf="@+id/button4" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        android:insetLeft="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
         android:id="@+id/button6"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
-        android:layout_marginStart="@dimen/marginButton"
-        android:layout_marginLeft="@dimen/marginButton"
-        android:layout_marginTop="@dimen/marginButton"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
         android:text="@string/button6"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
         app:cornerRadius="@dimen/buttonCornerRadius"
-        app:layout_constraintBottom_toTopOf="@id/button3"
-        app:layout_constraintEnd_toEndOf="@id/buttonAddition"
-        app:layout_constraintStart_toEndOf="@id/button5"
-        app:layout_constraintTop_toBottomOf="@id/button9" />
+        app:layout_constraintBottom_toBottomOf="@+id/button5"
+        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintTop_toBottomOf="@+id/button8" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        android:insetLeft="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
         android:id="@+id/button1"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
-        android:layout_marginTop="@dimen/marginButton"
-        android:layout_marginEnd="@dimen/marginButton"
-        android:layout_marginRight="@dimen/marginButton"
-        android:layout_marginBottom="@dimen/marginButton"
         android:text="@string/button1"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
         app:cornerRadius="@dimen/buttonCornerRadius"
-        app:layout_constraintBottom_toTopOf="@id/button0"
-        app:layout_constraintEnd_toStartOf="@id/button2"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button4" />
+        app:layout_constraintEnd_toEndOf="@+id/button4"
+        app:layout_constraintStart_toStartOf="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        android:insetLeft="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
         android:id="@+id/button2"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
-        android:layout_marginStart="@dimen/marginButton"
-        android:layout_marginLeft="@dimen/marginButton"
-        android:layout_marginTop="@dimen/marginButton"
-        android:layout_marginEnd="@dimen/marginButton"
-        android:layout_marginRight="@dimen/marginButton"
-        android:layout_marginBottom="@dimen/marginButton"
         android:text="@string/button2"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
         app:cornerRadius="@dimen/buttonCornerRadius"
-        app:layout_constraintBottom_toTopOf="@id/button0"
-        app:layout_constraintEnd_toStartOf="@id/button3"
-        app:layout_constraintStart_toEndOf="@id/button1"
-        app:layout_constraintTop_toBottomOf="@id/button5" />
+        app:layout_constraintBottom_toBottomOf="@+id/button1"
+        app:layout_constraintStart_toEndOf="@+id/button1"
+        app:layout_constraintTop_toTopOf="@+id/button1" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        android:insetLeft="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
         android:id="@+id/button3"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
-        android:layout_marginStart="@dimen/marginButton"
-        android:layout_marginLeft="@dimen/marginButton"
-        android:layout_marginTop="@dimen/marginButton"
-        android:layout_marginEnd="@dimen/marginButton"
-        android:layout_marginRight="@dimen/marginButton"
-        android:layout_marginBottom="@dimen/marginButton"
         android:text="@string/button3"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
         app:cornerRadius="@dimen/buttonCornerRadius"
-        app:layout_constraintBottom_toTopOf="@+id/buttonDot"
-        app:layout_constraintEnd_toStartOf="@id/buttonEqually"
-        app:layout_constraintStart_toEndOf="@id/button2"
-        app:layout_constraintTop_toBottomOf="@id/button6" />
+        app:layout_constraintBottom_toBottomOf="@+id/button2"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="@+id/button2" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        android:insetLeft="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
         android:id="@+id/button0"
         android:layout_width="@dimen/layoutWidthHeightZeroDP"
         android:layout_height="@dimen/sizeButton"
-        android:layout_marginTop="@dimen/marginButton"
-        android:layout_marginEnd="@dimen/marginButton"
-        android:layout_marginRight="@dimen/marginButton"
         android:text="@string/button0"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
         app:cornerRadius="@dimen/buttonCornerRadius"
-        app:layout_constraintEnd_toStartOf="@id/buttonDot"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="@id/button1"
-        app:layout_constraintTop_toBottomOf="@id/button2" />
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintStart_toStartOf="@+id/button1"
+        app:layout_constraintTop_toBottomOf="@+id/button1" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        android:insetLeft="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
         android:id="@+id/buttonDot"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
-        android:layout_marginStart="@dimen/marginButton"
-        android:layout_marginLeft="@dimen/marginButton"
-        android:layout_marginTop="@dimen/marginButton"
         android:text="@string/buttonDot"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
         app:cornerRadius="@dimen/buttonCornerRadius"
-        app:layout_constraintEnd_toEndOf="@id/button3"
-        app:layout_constraintStart_toEndOf="@id/button0"
-        app:layout_constraintTop_toBottomOf="@id/button3" />
+        app:layout_constraintBottom_toBottomOf="@+id/button0"
+        app:layout_constraintStart_toEndOf="@+id/button0"
+        app:layout_constraintTop_toTopOf="@+id/button0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

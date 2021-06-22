@@ -3,7 +3,7 @@
     <dimen name="textSize">18sp</dimen>
     <dimen name="buttonCornerRadius">0dp</dimen>
     <dimen name="sizeButton">64dp</dimen>
-    <dimen name="marginButton">8dp</dimen>
+    <dimen name="marginButton">5dp</dimen>
     <dimen name="marginTop">192dp</dimen>
     <dimen name="layoutWidthHeightZeroDP">0dp</dimen>
 </resources>
