@@ -6,4 +6,7 @@
     <dimen name="marginButton">5dp</dimen>
     <dimen name="marginTop">192dp</dimen>
     <dimen name="layoutWidthHeightZeroDP">0dp</dimen>
+    <dimen name="zeroLayoutHeight">0dp</dimen>
+    <dimen name="editTextHeight">64dp</dimen>
+    <dimen name="editTextWidth">280dp</dimen>
 </resources>
