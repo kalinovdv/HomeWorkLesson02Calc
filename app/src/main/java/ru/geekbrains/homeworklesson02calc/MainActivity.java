@@ -1,5 +1,6 @@
 package ru.geekbrains.homeworklesson02calc;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -8,9 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+import java.io.Serializable;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView textView;
+    private final static String KEY = "CALKULATION";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,4 +139,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle instanceState) {
+        super.onSaveInstanceState(instanceState);
+        instanceState.putString(KEY, (String) textView.getText());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle instanceState) {
+        super.onRestoreInstanceState(instanceState);
+        String s = (String) instanceState.getString(KEY);
+        textView.setText(s);
+    }
+
+
 }
