@@ -7,15 +7,19 @@
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/editText"
+    <TextView
+        android:id="@+id/TextView"
         android:layout_width="@dimen/editTextWidth"
         android:layout_height="@dimen/editTextHeight"
         android:background="@color/editTextBackground"
-        app:layout_constraintLeft_toLeftOf="@id/buttonClear"
-        app:layout_constraintRight_toRightOf="@id/buttonSubtraction"
+        android:gravity="end|center"
+        android:textSize="@dimen/editTextTextSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintVertical_bias="0.1" />
 
     <com.google.android.material.button.MaterialButton
         android:insetLeft="@dimen/marginButton"
@@ -34,8 +38,7 @@
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2"
-         />
+        app:layout_constraintVertical_bias="0.2" />
 
     <com.google.android.material.button.MaterialButton
         android:insetLeft="@dimen/marginButton"
