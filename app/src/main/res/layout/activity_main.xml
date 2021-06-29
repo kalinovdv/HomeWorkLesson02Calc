@@ -23,13 +23,13 @@
         app:layout_constraintVertical_bias="0.05" />
 
     <com.google.android.material.button.MaterialButton
-        android:insetLeft="@dimen/marginButton"
-        android:insetRight="@dimen/marginButton"
-        android:insetBottom="@dimen/marginButton"
-        android:insetTop="@dimen/marginButton"
         android:id="@+id/buttonClear"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
+        android:insetLeft="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
         android:text="@string/buttonClear"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
@@ -42,13 +42,13 @@
         app:layout_constraintVertical_bias="0.2" />
 
     <com.google.android.material.button.MaterialButton
-        android:insetLeft="@dimen/marginButton"
-        android:insetRight="@dimen/marginButton"
-        android:insetBottom="@dimen/marginButton"
-        android:insetTop="@dimen/marginButton"
         android:id="@+id/buttonDivision"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
+        android:insetLeft="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
         android:text="@string/buttonDivision"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
@@ -58,13 +58,13 @@
         app:layout_constraintTop_toTopOf="@+id/buttonClear" />
 
     <com.google.android.material.button.MaterialButton
-        android:insetLeft="@dimen/marginButton"
-        android:insetRight="@dimen/marginButton"
-        android:insetBottom="@dimen/marginButton"
-        android:insetTop="@dimen/marginButton"
         android:id="@+id/buttonМultiplication"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
+        android:insetLeft="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
         android:text="@string/buttonMultiplication"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
@@ -74,13 +74,13 @@
         app:layout_constraintTop_toTopOf="@+id/buttonDivision" />
 
     <com.google.android.material.button.MaterialButton
-        android:insetLeft="@dimen/marginButton"
-        android:insetRight="@dimen/marginButton"
-        android:insetBottom="@dimen/marginButton"
-        android:insetTop="@dimen/marginButton"
         android:id="@+id/buttonSubtraction"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
+        android:insetLeft="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
         android:text="@string/buttonSubtraction"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
@@ -90,13 +90,13 @@
         app:layout_constraintTop_toTopOf="@+id/buttonМultiplication" />
 
     <com.google.android.material.button.MaterialButton
-        android:insetLeft="@dimen/marginButton"
-        android:insetRight="@dimen/marginButton"
-        android:insetBottom="@dimen/marginButton"
-        android:insetTop="@dimen/marginButton"
         android:id="@+id/button7"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
+        android:insetLeft="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
         android:text="@string/button7"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
@@ -106,13 +106,13 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonClear" />
 
     <com.google.android.material.button.MaterialButton
-        android:insetLeft="@dimen/marginButton"
-        android:insetRight="@dimen/marginButton"
-        android:insetBottom="@dimen/marginButton"
-        android:insetTop="@dimen/marginButton"
         android:id="@+id/button8"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
+        android:insetLeft="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
         android:text="@string/button8"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
@@ -122,13 +122,13 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonClear" />
 
     <com.google.android.material.button.MaterialButton
-        android:insetLeft="@dimen/marginButton"
-        android:insetRight="@dimen/marginButton"
-        android:insetBottom="@dimen/marginButton"
-        android:insetTop="@dimen/marginButton"
         android:id="@+id/button9"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
+        android:insetLeft="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
         android:text="@string/button9"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
@@ -138,13 +138,13 @@
         app:layout_constraintTop_toTopOf="@+id/button8" />
 
     <com.google.android.material.button.MaterialButton
-        android:insetLeft="@dimen/marginButton"
-        android:insetRight="@dimen/marginButton"
-        android:insetBottom="@dimen/marginButton"
-        android:insetTop="@dimen/marginButton"
         android:id="@+id/buttonAddition"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/layoutWidthHeightZeroDP"
+        android:insetLeft="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
         android:text="@string/buttonAddition"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
@@ -154,13 +154,13 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonМultiplication" />
 
     <com.google.android.material.button.MaterialButton
-        android:insetLeft="@dimen/marginButton"
-        android:insetRight="@dimen/marginButton"
-        android:insetBottom="@dimen/marginButton"
-        android:insetTop="@dimen/marginButton"
         android:id="@+id/buttonEqually"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/layoutWidthHeightZeroDP"
+        android:insetLeft="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
         android:text="@string/buttonEqually"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
@@ -170,13 +170,13 @@
         app:layout_constraintTop_toBottomOf="@+id/button6" />
 
     <com.google.android.material.button.MaterialButton
-        android:insetLeft="@dimen/marginButton"
-        android:insetRight="@dimen/marginButton"
-        android:insetBottom="@dimen/marginButton"
-        android:insetTop="@dimen/marginButton"
         android:id="@+id/button4"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
+        android:insetLeft="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
         android:text="@string/button4"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
@@ -186,13 +186,13 @@
         app:layout_constraintTop_toBottomOf="@+id/button7" />
 
     <com.google.android.material.button.MaterialButton
-        android:insetLeft="@dimen/marginButton"
-        android:insetRight="@dimen/marginButton"
-        android:insetBottom="@dimen/marginButton"
-        android:insetTop="@dimen/marginButton"
         android:id="@+id/button5"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
+        android:insetLeft="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
         android:text="@string/button5"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
@@ -202,13 +202,13 @@
         app:layout_constraintTop_toTopOf="@+id/button4" />
 
     <com.google.android.material.button.MaterialButton
-        android:insetLeft="@dimen/marginButton"
-        android:insetRight="@dimen/marginButton"
-        android:insetBottom="@dimen/marginButton"
-        android:insetTop="@dimen/marginButton"
         android:id="@+id/button6"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
+        android:insetLeft="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
         android:text="@string/button6"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
@@ -218,13 +218,13 @@
         app:layout_constraintTop_toBottomOf="@+id/button8" />
 
     <com.google.android.material.button.MaterialButton
-        android:insetLeft="@dimen/marginButton"
-        android:insetRight="@dimen/marginButton"
-        android:insetBottom="@dimen/marginButton"
-        android:insetTop="@dimen/marginButton"
         android:id="@+id/button1"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
+        android:insetLeft="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
         android:text="@string/button1"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
@@ -234,13 +234,13 @@
         app:layout_constraintTop_toBottomOf="@+id/button4" />
 
     <com.google.android.material.button.MaterialButton
-        android:insetLeft="@dimen/marginButton"
-        android:insetRight="@dimen/marginButton"
-        android:insetBottom="@dimen/marginButton"
-        android:insetTop="@dimen/marginButton"
         android:id="@+id/button2"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
+        android:insetLeft="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
         android:text="@string/button2"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
@@ -250,13 +250,13 @@
         app:layout_constraintTop_toTopOf="@+id/button1" />
 
     <com.google.android.material.button.MaterialButton
-        android:insetLeft="@dimen/marginButton"
-        android:insetRight="@dimen/marginButton"
-        android:insetBottom="@dimen/marginButton"
-        android:insetTop="@dimen/marginButton"
         android:id="@+id/button3"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
+        android:insetLeft="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
         android:text="@string/button3"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
@@ -266,13 +266,13 @@
         app:layout_constraintTop_toTopOf="@+id/button2" />
 
     <com.google.android.material.button.MaterialButton
-        android:insetLeft="@dimen/marginButton"
-        android:insetRight="@dimen/marginButton"
-        android:insetBottom="@dimen/marginButton"
-        android:insetTop="@dimen/marginButton"
         android:id="@+id/button0"
         android:layout_width="@dimen/layoutWidthHeightZeroDP"
         android:layout_height="@dimen/sizeButton"
+        android:insetLeft="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
         android:text="@string/button0"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
@@ -282,13 +282,13 @@
         app:layout_constraintTop_toBottomOf="@+id/button1" />
 
     <com.google.android.material.button.MaterialButton
-        android:insetLeft="@dimen/marginButton"
-        android:insetRight="@dimen/marginButton"
-        android:insetBottom="@dimen/marginButton"
-        android:insetTop="@dimen/marginButton"
         android:id="@+id/buttonDot"
         android:layout_width="@dimen/sizeButton"
         android:layout_height="@dimen/sizeButton"
+        android:insetLeft="@dimen/marginButton"
+        android:insetTop="@dimen/marginButton"
+        android:insetRight="@dimen/marginButton"
+        android:insetBottom="@dimen/marginButton"
         android:text="@string/buttonDot"
         android:textSize="@dimen/textSize"
         app:backgroundTint="@color/buttonColor"
@@ -297,6 +297,25 @@
         app:layout_constraintStart_toEndOf="@+id/button0"
         app:layout_constraintTop_toTopOf="@+id/button0" />
 
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button0">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radioButtonMyTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/MyTheme"/>
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radioButtonMyThemeDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/MyThemeDark"/>
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
