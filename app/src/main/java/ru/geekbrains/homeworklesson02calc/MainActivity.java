@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
+
+import com.google.android.material.radiobutton.MaterialRadioButton;
 
 import java.io.Serializable;
 
@@ -18,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String KEY = "CALKULATION";
 
     private static final String NAME_SHARED_PREFERENCE = "MYCALC";
+    private static final String THEME = "MYTHEME";
 
     private static final int MY_THEME = 0;
     private static final int MY_THEME_DARK = 1;
@@ -25,10 +30,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences sharedPreferences = getSharedPreferences(NAME_SHARED_PREFERENCE, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(THEME, MY_THEME);
+        editor.apply();
+
         setContentView(R.layout.activity_main);
 
         initView();
         initButtons();
+
+        MaterialRadioButton radioButtonMyTheme = findViewById(R.id.radioButtonMyTheme);
+        radioButtonMyTheme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences(NAME_SHARED_PREFERENCE, MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt(THEME, MY_THEME);
+                editor.apply();
+                recreate();
+            }
+        });
+
+        MaterialRadioButton radioButtonMyThemeDark = findViewById(R.id.radioButtonMyThemeDark);
+        radioButtonMyThemeDark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences(NAME_SHARED_PREFERENCE, MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt(THEME, MY_THEME_DARK);
+                editor.apply();
+                recreate();
+            }
+        });
     }
 
     private void initView(){
