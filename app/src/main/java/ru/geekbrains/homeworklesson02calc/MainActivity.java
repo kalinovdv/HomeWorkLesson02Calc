@@ -32,9 +32,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
 
         SharedPreferences sharedPreferences = getSharedPreferences(NAME_SHARED_PREFERENCE, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(THEME, MY_THEME);
-        editor.apply();
+        int code = sharedPreferences.getInt(THEME, MY_THEME);
+        switch (code){
+            case MY_THEME:
+                setTheme(R.style.MyTheme);
+                break;
+            case MY_THEME_DARK:
+                setTheme(R.style.MyThemeDark);
+                break;
+        }
 
         setContentView(R.layout.activity_main);
 
@@ -135,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 textView.setText("Нажата кнопка .");
                 break;
             case R.id.buttonClear:
-                textView.setText("Нажата кнопка C");
+                textView.setText("0");
                 break;
         }
     }
