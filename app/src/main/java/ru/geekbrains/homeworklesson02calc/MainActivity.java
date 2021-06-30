@@ -2,6 +2,7 @@ package ru.geekbrains.homeworklesson02calc;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -14,7 +15,12 @@ import java.io.Serializable;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView textView;
-    private final static String KEY = "CALKULATION";
+    private static final String KEY = "CALKULATION";
+
+    private static final String NAME_SHARED_PREFERENCE = "MYCALC";
+
+    private static final int MY_THEME = 0;
+    private static final int MY_THEME_DARK = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,56 +36,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initButtons(){
-        Button button0 = findViewById(R.id.button0);
-        button0.setOnClickListener(this);
 
-        Button button1 = findViewById(R.id.button1);
-        button1.setOnClickListener(this);
+        ConstraintLayout constraintLayout = findViewById(R.id.myLayout);
 
-        Button button2 = findViewById(R.id.button2);
-        button2.setOnClickListener(this);
-
-        Button button3 = findViewById(R.id.button3);
-        button3.setOnClickListener(this);
-
-        Button button4 = findViewById(R.id.button4);
-        button4.setOnClickListener(this);
-
-        Button button5 = findViewById(R.id.button5);
-        button5.setOnClickListener(this);
-
-        Button button6 = findViewById(R.id.button6);
-        button6.setOnClickListener(this);
-
-        Button button7 = findViewById(R.id.button7);
-        button7.setOnClickListener(this);
-
-        Button button8 = findViewById(R.id.button8);
-        button8.setOnClickListener(this);
-
-        Button button9 = findViewById(R.id.button9);
-        button9.setOnClickListener(this);
-
-        Button buttonAddition = findViewById(R.id.buttonAddition);
-        buttonAddition.setOnClickListener(this);
-
-        Button buttonSubtraction = findViewById(R.id.buttonSubtraction);
-        buttonSubtraction.setOnClickListener(this);
-
-        Button buttonMultiplication = findViewById(R.id.buttonМultiplication);
-        buttonMultiplication.setOnClickListener(this);
-
-        Button buttonDivision = findViewById(R.id.buttonDivision);
-        buttonDivision.setOnClickListener(this);
-
-        Button buttonEqually = findViewById(R.id.buttonEqually);
-        buttonEqually.setOnClickListener(this);
-
-        Button buttonDot = findViewById(R.id.buttonDot);
-        buttonDot.setOnClickListener(this);
-
-        Button buttonClear = findViewById(R.id.buttonClear);
-        buttonClear.setOnClickListener(this);
+        for (int i = 0; i < constraintLayout.getChildCount(); i++) {
+            View view = constraintLayout.getChildAt(i);
+            if (view instanceof Button){
+                view.setOnClickListener(this);
+            }
+        }
     }
 
     @SuppressLint("NonConstantResourceId")
