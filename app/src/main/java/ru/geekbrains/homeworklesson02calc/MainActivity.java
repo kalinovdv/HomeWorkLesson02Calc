@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String operation = "";
     private String inputType = "";
     private Double memoryCell = 0.0;
-    private Boolean operationEqually = false;
+//    private Boolean operationEqually = false;
 
     private static final String KEY = "CALKULATION";
     private static final String NAME_SHARED_PREFERENCE = "MYCALC";
@@ -34,9 +34,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int MY_THEME_DARK = 1;
 
     private static final String OPERATION_ADDITION = "+";
-    private static final String OPERATION_EQUALLY = "=";
+    private static final String OPERATION_SUBTRACTION = "-";
+//    private static final String OPERATION_EQUALLY = "=";
 
     private static final String INPUTTYPE_ADDITION = "+";
+    private static final String INPUTTYPE_SUBTRACTION = "-";
     private static final String INPUTTYPE_EQUALLY = "=";
     private static final String INPUTTYPE_DIGITS = "d";
 
@@ -117,7 +119,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     // т.к. ноль должен быть нулем, а не цепочкой символов "00000"
                     inputType = INPUTTYPE_DIGITS;
 
-                } else if (inputType.equals(INPUTTYPE_ADDITION) || inputType.equals(INPUTTYPE_EQUALLY)) {
+                } else if (inputType.equals(INPUTTYPE_ADDITION) || inputType.equals(INPUTTYPE_SUBTRACTION)
+                        || inputType.equals(INPUTTYPE_EQUALLY)) {
                     //осли клавиша нажата после арифметической операции, то выводим "0"
                     textView.setText(str);
                     inputType = INPUTTYPE_DIGITS;
@@ -159,16 +162,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
 
+            case R.id.buttonSubtraction:
+                if (inputType.equals(INPUTTYPE_SUBTRACTION)) {
+                    // если клавиша "-" нажата после клавиши "-", то ничего не делаем
+                    inputType = INPUTTYPE_SUBTRACTION;
+                    operation = OPERATION_SUBTRACTION;
+
+                } else if (inputType.equals(INPUTTYPE_EQUALLY)) {
+                    // если клавиша "-" нажата после клавиши "="
+                    result = Double.parseDouble(textView.getText().toString());
+                    memoryCell = result;
+                    inputType = INPUTTYPE_SUBTRACTION;
+                    operation = OPERATION_SUBTRACTION;
+
+                } else if (inputType.equals(INPUTTYPE_DIGITS)) {
+                    result = Double.parseDouble(textView.getText().toString());
+                    memoryCell += result;
+                    textView.setText(decimalFormat.format(memoryCell));
+                    inputType = INPUTTYPE_SUBTRACTION;
+                    operation = OPERATION_SUBTRACTION;
+                }
+                break;
+
             case R.id.buttonEqually:
-                if (inputType.equals(INPUTTYPE_ADDITION)) {
-                    // если клавиша "=" нажата после клавиши "+", то выводим результат сложения
+                if (inputType.equals(INPUTTYPE_ADDITION) || inputType.equals(INPUTTYPE_SUBTRACTION)) {
+                    // если клавиша "=" нажата после клавиш "+, -, *, /", то выводим результат сложения
                     result = Double.parseDouble(textView.getText().toString());
                     if (operation.equals(OPERATION_ADDITION)) {
-                        result += memoryCell;
+                        memoryCell += result;
+                    } else if (operation.equals(OPERATION_SUBTRACTION)) {
+                        memoryCell -= result;
                     }
-                    memoryCell = Double.parseDouble(textView.getText().toString());
-                    textView.setText(decimalFormat.format(result));
-                    //operationEqually = true;
+                    textView.setText(decimalFormat.format(memoryCell));
+                    memoryCell = result;
                     inputType = INPUTTYPE_EQUALLY;
 
                 } else if (inputType.equals(INPUTTYPE_EQUALLY)) {
@@ -176,6 +202,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     result = Double.parseDouble(textView.getText().toString());
                     if (operation.equals(OPERATION_ADDITION)) {
                         result += memoryCell;
+                    } else if (operation.equals(OPERATION_SUBTRACTION)) {
+                        result -= memoryCell;
                     }
                     textView.setText(decimalFormat.format(result));
                     inputType = INPUTTYPE_EQUALLY;
@@ -183,11 +211,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } else if (inputType.equals(INPUTTYPE_DIGITS)) {
                     result = Double.parseDouble(textView.getText().toString());
                     if (operation.equals(OPERATION_ADDITION)) {
-                        result += memoryCell;
+                        memoryCell += result;
+                    } else if (operation.equals(OPERATION_SUBTRACTION)) {
+                        memoryCell -= result;
                     }
-                    memoryCell = Double.parseDouble(textView.getText().toString());
-                    textView.setText(decimalFormat.format(result));
-                    //operationEqually = true;
+                    textView.setText(decimalFormat.format(memoryCell));
+                    memoryCell = result;
                     inputType = INPUTTYPE_EQUALLY;
                 }
                 break;
@@ -197,7 +226,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 inputType = "";
                 operation = "";
                 memoryCell = 0.0;
-                operationEqually = false;
                 break;
 
             default:
@@ -206,7 +234,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     textView.setText(str);
                     inputType = INPUTTYPE_DIGITS;
 
-                } else if (inputType.equals(INPUTTYPE_ADDITION)) {
+                } else if (inputType.equals(INPUTTYPE_ADDITION) || inputType.equals(INPUTTYPE_SUBTRACTION)) {
                     textView.setText(str);
                     inputType = INPUTTYPE_DIGITS;
 
