@@ -18,27 +18,39 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    // перменнеая
     private TextView textView;
-    private String operation = "";
-    private String inputType = "";
-    private Double memoryCell = 0.0;
-//    private Boolean operationEqually = false;
 
+    // переменная для хранения последней арифметической операции (+, -, *, /)
+    private String operation = "";
+
+    // переменная для хранения типа нажатой клавиши (цифра, операция, равно)
+    private String inputType = "";
+
+    // переменная для хранения операнда арифметической операции
+    private Double memoryCell = 0.0;
+
+    // константы для операций сохранения состояния
     private static final String KEY = "CALKULATION";
     private static final String NAME_SHARED_PREFERENCE = "MYCALC";
     private static final String THEME = "MYTHEME";
 
+    // переменная для формата выводимого результата
     private final DecimalFormat decimalFormat = new DecimalFormat("#.#####");
 
+    // константы для стилей приложения
     private static final int MY_THEME = 0;
     private static final int MY_THEME_DARK = 1;
 
+    // константы арифметических операций
     private static final String OPERATION_ADDITION = "+";
     private static final String OPERATION_SUBTRACTION = "-";
-//    private static final String OPERATION_EQUALLY = "=";
+    private static final String OPERATION_MULTIPLIKATION = "*";
 
+    // константы типов вводимых данных
     private static final String INPUTTYPE_ADDITION = "+";
     private static final String INPUTTYPE_SUBTRACTION = "-";
+    private static final String INPUTTYPE_MULTIPLIKATION = "*";
     private static final String INPUTTYPE_EQUALLY = "=";
     private static final String INPUTTYPE_DIGITS = "d";
 
@@ -133,95 +145,173 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.buttonAddition:
+                //обработка нажатия клавиши "+"
                 if (inputType.equals(INPUTTYPE_ADDITION)) {
-                    // если клавиша "+" нажата после клавиши "+", то ничего не делаем
+                    // если клавиша "+" нажата после клавиши "+",
+                    // то ничего не делаем: 2++ никакого результата не дает
                     inputType = INPUTTYPE_ADDITION;
                     operation = OPERATION_ADDITION;
 
                 } else if (inputType.equals(INPUTTYPE_EQUALLY)) {
-                    // если клавиша "+" нажата после клавиши "="
+                    // если клавиша "+" нажата после клавиши "=",
+                    // то сохраняем значение на экране калькулятора в память
                     result = Double.parseDouble(textView.getText().toString());
                     memoryCell = result;
-                    //operationEqually = false;
                     inputType = INPUTTYPE_ADDITION;
                     operation = OPERATION_ADDITION;
 
                 } else if (inputType.equals(INPUTTYPE_DIGITS)) {
+                    // если клавиша "+" нажата после цифровой клавиши,
                     result = Double.parseDouble(textView.getText().toString());
-//                    if (operationEqually) {
-//                        memoryCell = result;
-//                    } else {
-//                        result += memoryCell;
-//                        memoryCell = result;
-//                    }
-                    result += memoryCell;
-                    memoryCell = result;
-                    textView.setText(decimalFormat.format(result));
+                    // вычисляем в памяти значение арифметической операции
+                    if (operation.equals(OPERATION_ADDITION)) {
+                        memoryCell += result;
+                    } else if (operation.equals(OPERATION_SUBTRACTION)) {
+                        memoryCell -= result;
+                    } else if (operation.equals(OPERATION_MULTIPLIKATION)) {
+                        memoryCell *= result;
+                    } else {
+                        memoryCell = result;
+                    }
+                    // на экран выводим результат вычислений из памяти
+                    textView.setText(decimalFormat.format(memoryCell));
                     operation = OPERATION_ADDITION;
                     inputType = INPUTTYPE_ADDITION;
                 }
                 break;
 
             case R.id.buttonSubtraction:
+                //обработка нажатия клавиши "-"
                 if (inputType.equals(INPUTTYPE_SUBTRACTION)) {
-                    // если клавиша "-" нажата после клавиши "-", то ничего не делаем
+                    // если клавиша "-" нажата после клавиши "-",
+                    // то ничего не делаем: 2-- никакого результата
                     inputType = INPUTTYPE_SUBTRACTION;
                     operation = OPERATION_SUBTRACTION;
 
                 } else if (inputType.equals(INPUTTYPE_EQUALLY)) {
-                    // если клавиша "-" нажата после клавиши "="
+                    // если клавиша "-" нажата после клавиши "=",
+                    // то сохраняем значение на экране калькулятора в память
                     result = Double.parseDouble(textView.getText().toString());
                     memoryCell = result;
                     inputType = INPUTTYPE_SUBTRACTION;
                     operation = OPERATION_SUBTRACTION;
 
                 } else if (inputType.equals(INPUTTYPE_DIGITS)) {
+                    // если клавиша "-" нажата после цифровой клавиши,
                     result = Double.parseDouble(textView.getText().toString());
-                    memoryCell += result;
+                    // вычисляем в памяти значение арифметической операции
+                    if (operation.equals(OPERATION_ADDITION)) {
+                        memoryCell += result;
+                    } else if (operation.equals(OPERATION_SUBTRACTION)) {
+                        memoryCell -= result;
+                    } else if (operation.equals(OPERATION_MULTIPLIKATION)) {
+                        memoryCell *= result;
+                    } else {
+                        memoryCell = result;
+                    }
+                    // на экран выводим результат вычислений из памяти
                     textView.setText(decimalFormat.format(memoryCell));
                     inputType = INPUTTYPE_SUBTRACTION;
                     operation = OPERATION_SUBTRACTION;
                 }
                 break;
 
-            case R.id.buttonEqually:
-                if (inputType.equals(INPUTTYPE_ADDITION) || inputType.equals(INPUTTYPE_SUBTRACTION)) {
-                    // если клавиша "=" нажата после клавиш "+, -, *, /", то выводим результат сложения
+            case R.id.buttonМultiplication:
+                //обработка нажатия клавиши "*"
+                if (inputType.equals(INPUTTYPE_MULTIPLIKATION)) {
+                    // если клавиша "*" нажата после клавиши "*",
+                    // то ничего не делаем: 2-- никакого результата
+                    inputType = INPUTTYPE_MULTIPLIKATION;
+                    operation = OPERATION_MULTIPLIKATION;
+
+                } else if (inputType.equals(INPUTTYPE_EQUALLY)) {
+                    // если клавиша "*" нажата после клавиши "=",
+                    // то сохраняем значение на экране калькулятора в память
                     result = Double.parseDouble(textView.getText().toString());
+                    memoryCell = result;
+                    inputType = INPUTTYPE_MULTIPLIKATION;
+                    operation = OPERATION_MULTIPLIKATION;
+
+                } else if (inputType.equals(INPUTTYPE_DIGITS)) {
+                    // если клавиша "*" нажата после цифровой клавиши,
+                    result = Double.parseDouble(textView.getText().toString());
+                    // вычисляем в памяти значение арифметической операции
                     if (operation.equals(OPERATION_ADDITION)) {
                         memoryCell += result;
                     } else if (operation.equals(OPERATION_SUBTRACTION)) {
                         memoryCell -= result;
+                    } else if (operation.equals(OPERATION_MULTIPLIKATION)) {
+                        memoryCell *= result;
+                    } else {
+                        memoryCell = result;
                     }
+                    // на экран выводим результат вычислений из памяти
                     textView.setText(decimalFormat.format(memoryCell));
+                    inputType = INPUTTYPE_MULTIPLIKATION;
+                    operation = OPERATION_MULTIPLIKATION;
+                }
+                break;
+
+            case R.id.buttonEqually:
+                //обработка нажатия клавиши "="
+                if (inputType.equals(INPUTTYPE_ADDITION) || inputType.equals(INPUTTYPE_SUBTRACTION) ||
+                        inputType.equals(INPUTTYPE_MULTIPLIKATION)) {
+                    // если клавиша "=" нажата после клавиш "+", "-", "*", "/" (2+=, результат - 4)
+                    // запомиинаем введенное значение
+                    result = Double.parseDouble(textView.getText().toString());
+                    // производим вычисление значения в памяти
+                    if (operation.equals(OPERATION_ADDITION)) {
+                        memoryCell += result;
+                    } else if (operation.equals(OPERATION_SUBTRACTION)) {
+                        memoryCell -= result;
+                    } else if (operation.equals(OPERATION_MULTIPLIKATION)) {
+                        memoryCell *= result;
+                    }
+                    // выводим вычисленное значение в памяти на экран
+                    textView.setText(decimalFormat.format(memoryCell));
+                    // сохраняем введенное значение в памяти
                     memoryCell = result;
                     inputType = INPUTTYPE_EQUALLY;
 
                 } else if (inputType.equals(INPUTTYPE_EQUALLY)) {
-                    // если клавиша "=" нажата после клавиши "=", то выводим результат сложения
+                    // если клавиша "=" нажата после клавиши "=" (2+3===, результат - 11)
+                    // запомиинаем введенное значение
                     result = Double.parseDouble(textView.getText().toString());
+                    // производим вычисление значения из памяти
                     if (operation.equals(OPERATION_ADDITION)) {
                         result += memoryCell;
                     } else if (operation.equals(OPERATION_SUBTRACTION)) {
                         result -= memoryCell;
+                    } else if (operation.equals(OPERATION_MULTIPLIKATION)) {
+                        result *= memoryCell;
                     }
+                    // выводим результат вычисления на экран
                     textView.setText(decimalFormat.format(result));
                     inputType = INPUTTYPE_EQUALLY;
 
                 } else if (inputType.equals(INPUTTYPE_DIGITS)) {
+                    // если клавиша "=" нажата после цифровой клавиши,
+                    // запомиинаем введенное значение
                     result = Double.parseDouble(textView.getText().toString());
+                    // производим вычисление значения в памяти
                     if (operation.equals(OPERATION_ADDITION)) {
                         memoryCell += result;
                     } else if (operation.equals(OPERATION_SUBTRACTION)) {
                         memoryCell -= result;
+                    } else if (operation.equals(OPERATION_MULTIPLIKATION)) {
+                        memoryCell *= result;
                     }
+                    // выводим вычисленное значение в памяти на экран
                     textView.setText(decimalFormat.format(memoryCell));
+                    // сохраняем введенное значение в памяти
                     memoryCell = result;
                     inputType = INPUTTYPE_EQUALLY;
                 }
                 break;
 
             case R.id.buttonClear:
+                // обработка нажатия клавиши "С"
+                // очистка всех парпметров
                 textView.setText("0");
                 inputType = "";
                 operation = "";
@@ -229,69 +319,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             default:
+                //обработка нажатия цифровых клавиш, кроме "0"
                 if (textView.getText().toString().equals("0")) {
                     // если на экране "0", то выводим нажатую цифру
                     textView.setText(str);
+                    // меняем тип нажатой клавиши на цифру
                     inputType = INPUTTYPE_DIGITS;
 
-                } else if (inputType.equals(INPUTTYPE_ADDITION) || inputType.equals(INPUTTYPE_SUBTRACTION)) {
+                } else if (inputType.equals(INPUTTYPE_ADDITION) || inputType.equals(INPUTTYPE_SUBTRACTION) ||
+                        inputType.equals(INPUTTYPE_MULTIPLIKATION)) {
+                    // если тип последней нажатой клавиши равен арифметической операции,
+                    // то выводим нажатую цифру
                     textView.setText(str);
+                    // меняем тип нажатой клавиши на цифру
                     inputType = INPUTTYPE_DIGITS;
 
                 } else if (inputType.equals(INPUTTYPE_EQUALLY)) {
+                    // если тип последней нажатой клавиши равен "=",
+                    // то выводим нажатую цифру
                     textView.setText(str);
+                    // меняем тип нажатой клавиши на цифру
                     inputType = INPUTTYPE_DIGITS;
+                    // сбрасываем значение в памяти в ноль (считаем, что начато новое действие)
                     memoryCell = 0.0;
-//                    if (operationEqually) {
-//                        operationEqually = false;
-//                        memoryCell = 0.0;
-//                    }
 
                 } else if (inputType.equals(INPUTTYPE_DIGITS)) {
-                    // если на экране не "0" и нажата цифровая клавиша, то добавляем цифру
+                    // если на экране не "0" и нажата цифровая клавиша,
+                    // то добавляем цифру к уже введенным цифрам
                     textView.append(str);
+                    // меняем тип нажатой клавиши на цифру
                     inputType = INPUTTYPE_DIGITS;
                 }
         }
-//        if (textView.getText().toString().equals("0") && idView == R.id.button0) {
-//            inputType = INPUTTYPE_DIGITS;
-//
-//        } else if ((textView.getText().toString().equals("0") || inputType.equals(INPUTTYPE_OPERATION)) &&
-//                (idView == R.id.button1 || idView == R.id.button2 || idView == R.id.button3 |
-//                        idView == R.id.button4 || idView == R.id.button5 || idView == R.id.button6 || idView == R.id.button7 ||
-//                        idView == R.id.button8 || idView == R.id.button9)) {
-//            textView.setText(str);
-//            inputType = INPUTTYPE_DIGITS;
-//
-//        } else if (!textView.getText().toString().equals("0") && (idView == R.id.button1 || idView == R.id.button2 || idView == R.id.button3 |
-//                idView == R.id.button4 || idView == R.id.button5 || idView == R.id.button6 || idView == R.id.button7 ||
-//                idView == R.id.button8 || idView == R.id.button9 || idView == R.id.button0)) {
-//            textView.append(str);
-//            inputType = INPUTTYPE_DIGITS;
-//
-//        } else if (idView == R.id.buttonClear) {
-//            textView.setText("0");
-//            inputType = null;
-//            operation = null;
-//            memoryCell = 0.0;
-//
-//        } else if (idView == R.id.buttonAddition) {
-//            inputType = INPUTTYPE_OPERATION;
-//            if (!inputType.equals(operation)) {
-//                operation = OPERATION_ADDITION;
-//                result = Double.parseDouble(textView.getText().toString());
-//                result += memoryCell;
-//                memoryCell = result;
-//                textView.setText(result.toString());
-//            }
-//
-//        } else if (idView == R.id.buttonEqually) {
-//            inputType = INPUTTYPE_EQUALLY;
-//            switch (operation) {
-//                case OPERATION_ADDITION:
-//                    break;
-//            }
-//        }
     }
 
     @Override
