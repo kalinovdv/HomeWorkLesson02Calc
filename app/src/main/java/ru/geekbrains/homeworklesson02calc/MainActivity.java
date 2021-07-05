@@ -46,11 +46,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String OPERATION_ADDITION = "+";
     private static final String OPERATION_SUBTRACTION = "-";
     private static final String OPERATION_MULTIPLIKATION = "*";
+    private static final String OPERATION_DIVISION = "/";
 
     // константы типов вводимых данных
     private static final String INPUTTYPE_ADDITION = "+";
     private static final String INPUTTYPE_SUBTRACTION = "-";
     private static final String INPUTTYPE_MULTIPLIKATION = "*";
+    private static final String INPUTTYPE_DIVISION = "/";
     private static final String INPUTTYPE_EQUALLY = "=";
     private static final String INPUTTYPE_DIGITS = "d";
 
@@ -132,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     inputType = INPUTTYPE_DIGITS;
 
                 } else if (inputType.equals(INPUTTYPE_ADDITION) || inputType.equals(INPUTTYPE_SUBTRACTION)
-                        || inputType.equals(INPUTTYPE_EQUALLY)) {
+                        || inputType.equals(INPUTTYPE_EQUALLY) || inputType.equals(INPUTTYPE_DIVISION)) {
                     //осли клавиша нажата после арифметической операции, то выводим "0"
                     textView.setText(str);
                     inputType = INPUTTYPE_DIGITS;
@@ -170,6 +172,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         memoryCell -= result;
                     } else if (operation.equals(OPERATION_MULTIPLIKATION)) {
                         memoryCell *= result;
+                    } else if (operation.equals(OPERATION_DIVISION)) {
+                        try {
+                            memoryCell /= result;
+                            if (memoryCell == Double.POSITIVE_INFINITY || memoryCell == Double.NEGATIVE_INFINITY) {
+                                throw new ArithmeticException();
+                            }
+                        } catch (ArithmeticException e) {
+                            textView.setText("ERR");
+                            inputType = "";
+                            operation = "";
+                            memoryCell = 0.0;
+                            break;
+                        }
                     } else {
                         memoryCell = result;
                     }
@@ -206,6 +221,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         memoryCell -= result;
                     } else if (operation.equals(OPERATION_MULTIPLIKATION)) {
                         memoryCell *= result;
+                    } else if (operation.equals(OPERATION_DIVISION)) {
+                        try {
+                            memoryCell /= result;
+                            if (memoryCell == Double.POSITIVE_INFINITY || memoryCell == Double.NEGATIVE_INFINITY) {
+                                throw new ArithmeticException();
+                            }
+                        } catch (ArithmeticException e) {
+                            textView.setText("ERR");
+                            inputType = "";
+                            operation = "";
+                            memoryCell = 0.0;
+                            break;
+                        }
                     } else {
                         memoryCell = result;
                     }
@@ -242,6 +270,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         memoryCell -= result;
                     } else if (operation.equals(OPERATION_MULTIPLIKATION)) {
                         memoryCell *= result;
+                    } else if (operation.equals(OPERATION_DIVISION)) {
+                        try {
+                            memoryCell /= result;
+                            if (memoryCell == Double.POSITIVE_INFINITY || memoryCell == Double.NEGATIVE_INFINITY) {
+                                throw new ArithmeticException();
+                            }
+                        } catch (ArithmeticException e) {
+                            textView.setText("ERR");
+                            inputType = "";
+                            operation = "";
+                            memoryCell = 0.0;
+                            break;
+                        }
                     } else {
                         memoryCell = result;
                     }
@@ -252,10 +293,59 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
 
+            case R.id.buttonDivision:
+                //обработка нажатия клавиши "/"
+                if (inputType.equals(INPUTTYPE_DIVISION)) {
+                    // если клавиша "*" нажата после клавиши "*",
+                    // то ничего не делаем: 2-- никакого результата
+                    inputType = INPUTTYPE_DIVISION;
+                    operation = OPERATION_DIVISION;
+
+                } else if (inputType.equals(INPUTTYPE_EQUALLY)) {
+                    // если клавиша "*" нажата после клавиши "=",
+                    // то сохраняем значение на экране калькулятора в память
+                    result = Double.parseDouble(textView.getText().toString());
+                    memoryCell = result;
+                    inputType = INPUTTYPE_DIVISION;
+                    operation = OPERATION_DIVISION;
+
+                } else if (inputType.equals(INPUTTYPE_DIGITS)) {
+                    // если клавиша "*" нажата после цифровой клавиши,
+                    result = Double.parseDouble(textView.getText().toString());
+                    // вычисляем в памяти значение арифметической операции
+                    if (operation.equals(OPERATION_ADDITION)) {
+                        memoryCell += result;
+                    } else if (operation.equals(OPERATION_SUBTRACTION)) {
+                        memoryCell -= result;
+                    } else if (operation.equals(OPERATION_MULTIPLIKATION)) {
+                        memoryCell *= result;
+                    } else if (operation.equals(OPERATION_DIVISION)) {
+                        try {
+                            memoryCell /= result;
+                            if (memoryCell == Double.POSITIVE_INFINITY || memoryCell == Double.NEGATIVE_INFINITY) {
+                                throw new ArithmeticException();
+                            }
+                        } catch (ArithmeticException e) {
+                            textView.setText("ERR");
+                            inputType = "";
+                            operation = "";
+                            memoryCell = 0.0;
+                            break;
+                        }
+                    } else {
+                        memoryCell = result;
+                    }
+                    // на экран выводим результат вычислений из памяти
+                    textView.setText(decimalFormat.format(memoryCell));
+                    inputType = INPUTTYPE_DIVISION;
+                    operation = OPERATION_DIVISION;
+                }
+                break;
+
             case R.id.buttonEqually:
                 //обработка нажатия клавиши "="
                 if (inputType.equals(INPUTTYPE_ADDITION) || inputType.equals(INPUTTYPE_SUBTRACTION) ||
-                        inputType.equals(INPUTTYPE_MULTIPLIKATION)) {
+                        inputType.equals(INPUTTYPE_MULTIPLIKATION) || inputType.equals(INPUTTYPE_DIVISION)) {
                     // если клавиша "=" нажата после клавиш "+", "-", "*", "/" (2+=, результат - 4)
                     // запомиинаем введенное значение
                     result = Double.parseDouble(textView.getText().toString());
@@ -266,6 +356,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         memoryCell -= result;
                     } else if (operation.equals(OPERATION_MULTIPLIKATION)) {
                         memoryCell *= result;
+                    } else if (operation.equals(OPERATION_DIVISION)) {
+                        try {
+                            memoryCell /= result;
+                            if (memoryCell == Double.POSITIVE_INFINITY || memoryCell == Double.NEGATIVE_INFINITY) {
+                                throw new ArithmeticException();
+                            }
+                        } catch (ArithmeticException e) {
+                            textView.setText("ERR");
+                            inputType = "";
+                            operation = "";
+                            memoryCell = 0.0;
+                            break;
+                        }
                     }
                     // выводим вычисленное значение в памяти на экран
                     textView.setText(decimalFormat.format(memoryCell));
@@ -284,6 +387,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         result -= memoryCell;
                     } else if (operation.equals(OPERATION_MULTIPLIKATION)) {
                         result *= memoryCell;
+                    } else if (operation.equals(OPERATION_DIVISION)) {
+                        try {
+                            memoryCell /= result;
+                            if (memoryCell == Double.POSITIVE_INFINITY || memoryCell == Double.NEGATIVE_INFINITY) {
+                                throw new ArithmeticException();
+                            }
+                        } catch (ArithmeticException e) {
+                            textView.setText("ERR");
+                            inputType = "";
+                            operation = "";
+                            memoryCell = 0.0;
+                            break;
+                        }
                     }
                     // выводим результат вычисления на экран
                     textView.setText(decimalFormat.format(result));
@@ -300,6 +416,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         memoryCell -= result;
                     } else if (operation.equals(OPERATION_MULTIPLIKATION)) {
                         memoryCell *= result;
+                    } else if (operation.equals(OPERATION_DIVISION)) {
+                        try {
+                            memoryCell /= result;
+                            if (memoryCell == Double.POSITIVE_INFINITY || memoryCell == Double.NEGATIVE_INFINITY) {
+                                throw new ArithmeticException();
+                            }
+                        } catch (ArithmeticException e) {
+                            textView.setText("ERR");
+                            inputType = "";
+                            operation = "";
+                            memoryCell = 0.0;
+                            break;
+                        }
                     }
                     // выводим вычисленное значение в памяти на экран
                     textView.setText(decimalFormat.format(memoryCell));
@@ -327,7 +456,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     inputType = INPUTTYPE_DIGITS;
 
                 } else if (inputType.equals(INPUTTYPE_ADDITION) || inputType.equals(INPUTTYPE_SUBTRACTION) ||
-                        inputType.equals(INPUTTYPE_MULTIPLIKATION)) {
+                        inputType.equals(INPUTTYPE_MULTIPLIKATION) || inputType.equals(INPUTTYPE_DIVISION)) {
                     // если тип последней нажатой клавиши равен арифметической операции,
                     // то выводим нажатую цифру
                     textView.setText(str);
