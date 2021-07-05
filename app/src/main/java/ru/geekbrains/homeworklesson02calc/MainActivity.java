@@ -1,6 +1,5 @@
 package ru.geekbrains.homeworklesson02calc;
 
-import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -31,7 +30,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Double memoryCell = 0.0;
 
     // константы для операций сохранения состояния
-    private static final String KEY = "CALKULATION";
+    private static final String KEY_TEXT_VIEW = "KEYTEXTVIEW";
+    private static final String KEY_OPERATION = "KEYOPERATION";
+    private static final String KEY_INPUTTYPE = "KEYINPUTTYPE";
+    private static final String KEY_MEMORYCELL = "KEYMEMORYCELL";
     private static final String NAME_SHARED_PREFERENCE = "MYCALC";
     private static final String THEME = "MYTHEME";
 
@@ -485,14 +487,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onSaveInstanceState(@NonNull Bundle instanceState) {
         super.onSaveInstanceState(instanceState);
-        instanceState.putString(KEY, textView.getText().toString());
+        instanceState.putString(KEY_TEXT_VIEW, textView.getText().toString());
+        instanceState.putString(KEY_OPERATION, operation);
+        instanceState.putString(KEY_INPUTTYPE, inputType);
+        instanceState.putDouble(KEY_MEMORYCELL, memoryCell);
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle instanceState) {
         super.onRestoreInstanceState(instanceState);
-        String s = instanceState.getString(KEY);
-        textView.setText(s);
+        textView.setText(instanceState.getString(KEY_TEXT_VIEW));
+        operation = instanceState.getString(KEY_OPERATION);
+        inputType = instanceState.getString(KEY_INPUTTYPE);
+        memoryCell = instanceState.getDouble(KEY_MEMORYCELL);
     }
 
 
