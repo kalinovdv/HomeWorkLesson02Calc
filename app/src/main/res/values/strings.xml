@@ -19,4 +19,6 @@
     <string name="buttonEqually">=</string>
     <string name="MyTheme">Моя тема</string>
     <string name="MyThemeDark">Моя тема (темная)</string>
+    <string name="settingsTextView">Выберете тему приложения</string>
+    <string name="settingsButtonSelectText">ВЫБРАТЬ</string>
 </resources>

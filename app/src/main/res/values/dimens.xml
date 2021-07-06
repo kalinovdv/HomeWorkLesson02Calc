@@ -10,4 +10,5 @@
     <dimen name="editTextHeight">64dp</dimen>
     <dimen name="editTextWidth">280dp</dimen>
     <dimen name="editTextTextSize">32sp</dimen>
+    <dimen name="settingsTextViewPadding">20dp</dimen>
 </resources>
