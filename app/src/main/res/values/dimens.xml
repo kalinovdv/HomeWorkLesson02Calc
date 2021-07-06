@@ -12,4 +12,5 @@
     <dimen name="editTextTextSize">32sp</dimen>
     <dimen name="settingsTextViewPadding">20dp</dimen>
     <dimen name="btnSettingsMarginVertical">30dp</dimen>
+    <dimen name="btnSettingsMarginVerticalLand">8dp</dimen>
 </resources>

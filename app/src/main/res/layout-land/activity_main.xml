@@ -297,28 +297,15 @@
         app:layout_constraintStart_toEndOf="@+id/buttonSubtraction"
         app:layout_constraintTop_toTopOf="@+id/buttonSubtraction" />
 
-    <RadioGroup
-        android:id="@+id/radioButtons"
+    <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/sizeButton"
+        android:backgroundTint="@color/buttonColor"
+        android:text="@string/btnSettingsText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button1"
-        android:orientation="horizontal">
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radioButtonMyTheme"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/MyTheme"/>
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radioButtonMyThemeDark"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/MyThemeDark"/>
-    </RadioGroup>
-
+        app:layout_constraintTop_toBottomOf="@id/button0"
+        android:layout_marginVertical="@dimen/btnSettingsMarginVerticalLand"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
