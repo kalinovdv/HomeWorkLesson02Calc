@@ -299,6 +299,7 @@
         app:layout_constraintTop_toTopOf="@+id/button0" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSettings"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/sizeButton"
         android:backgroundTint="@color/buttonColor"
