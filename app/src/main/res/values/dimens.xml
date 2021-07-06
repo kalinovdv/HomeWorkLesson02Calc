@@ -11,4 +11,5 @@
     <dimen name="editTextWidth">280dp</dimen>
     <dimen name="editTextTextSize">32sp</dimen>
     <dimen name="settingsTextViewPadding">20dp</dimen>
+    <dimen name="btnSettingsMarginVertical">30dp</dimen>
 </resources>

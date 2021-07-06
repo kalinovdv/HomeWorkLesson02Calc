@@ -21,4 +21,5 @@
     <string name="MyThemeDark">Моя тема (темная)</string>
     <string name="settingsTextView">Выберете тему приложения</string>
     <string name="settingsButtonSelectText">ВЫБРАТЬ</string>
+    <string name="btnSettingsText">НАСТРОЙКИ</string>
 </resources>
