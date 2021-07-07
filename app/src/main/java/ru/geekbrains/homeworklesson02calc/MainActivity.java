@@ -1,6 +1,7 @@
 package ru.geekbrains.homeworklesson02calc;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -37,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String KEY_MEMORYCELL = "KEYMEMORYCELL";
     private static final String NAME_SHARED_PREFERENCE = "MYCALC";
     private static final String THEME = "MYTHEME";
+
+    //
+    private static final int SETTINGS_ACTIVITY_LAUNCH = 99;
 
     // переменная для формата выводимого результата
     private final DecimalFormat decimalFormat = new DecimalFormat("#.#####");
@@ -79,35 +83,51 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initView();
         initButtons();
 
-        MaterialRadioButton radioButtonMyTheme = findViewById(R.id.radioButtonMyTheme);
-        radioButtonMyTheme.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SharedPreferences sharedPreferences = getSharedPreferences(NAME_SHARED_PREFERENCE, MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putInt(THEME, MY_THEME);
-                editor.apply();
-                recreate();
-            }
-        });
-
-        MaterialRadioButton radioButtonMyThemeDark = findViewById(R.id.radioButtonMyThemeDark);
-        radioButtonMyThemeDark.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SharedPreferences sharedPreferences = getSharedPreferences(NAME_SHARED_PREFERENCE, MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putInt(THEME, MY_THEME_DARK);
-                editor.apply();
-                recreate();
-            }
-        });
+//        MaterialRadioButton radioButtonMyTheme = findViewById(R.id.radioButtonMyTheme);
+//        radioButtonMyTheme.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                SharedPreferences sharedPreferences = getSharedPreferences(NAME_SHARED_PREFERENCE, MODE_PRIVATE);
+//                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                editor.putInt(THEME, MY_THEME);
+//                editor.apply();
+//                recreate();
+//            }
+//        });
+//
+//        MaterialRadioButton radioButtonMyThemeDark = findViewById(R.id.radioButtonMyThemeDark);
+//        radioButtonMyThemeDark.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                SharedPreferences sharedPreferences = getSharedPreferences(NAME_SHARED_PREFERENCE, MODE_PRIVATE);
+//                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                editor.putInt(THEME, MY_THEME_DARK);
+//                editor.apply();
+//                recreate();
+//            }
+//        });
 
         Button buttonSettings = findViewById(R.id.buttonSettings);
         buttonSettings.setOnClickListener(view -> {
             Intent settings = new Intent(MainActivity.this, SettingsActivity.class);
-            startActivity(settings);
+            startActivityForResult(settings, SETTINGS_ACTIVITY_LAUNCH);
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == SETTINGS_ACTIVITY_LAUNCH) {
+            if (resultCode == RESULT_OK) {
+                int selectedTheme = data.getIntExtra("selectedTheme", MY_THEME);
+                SharedPreferences sharedPreferences = getSharedPreferences(NAME_SHARED_PREFERENCE, MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt(THEME, selectedTheme);
+                editor.apply();
+                recreate();
+            }
+        }
     }
 
     private void initView() {
